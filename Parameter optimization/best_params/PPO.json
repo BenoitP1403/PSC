@@ -1,0 +1,34 @@
+{
+    "study_name": "PPO",
+    "best_trial_number": 44,
+    "best_value": 145.61366499498487,
+    "best_params": {
+        "learning_rate": 0.0003527278493266931,
+        "gamma": 0.9709259908440532,
+        "n_steps": 2048,
+        "batch_size": 32,
+        "ent_coef": 0.0003074156845605467,
+        "clip_range": 0.25208802269381736,
+        "n_epochs": 14,
+        "gae_lambda": 0.9281016549747716
+    },
+    "trial_user_attrs": {
+        "seed_rewards": [
+            148.46999614797534,
+            142.536002420038,
+            145.8349964169413
+        ]
+    },
+    "n_trials_completed": 51,
+    "saved_at_utc": "2026-03-12T18:01:11.312326+00:00",
+    "metadata": {
+        "algorithm": "PPO",
+        "total_timesteps": 100000,
+        "eval_episodes": 50,
+        "tune_seeds": [
+            0,
+            1,
+            2
+        ]
+    }
+}

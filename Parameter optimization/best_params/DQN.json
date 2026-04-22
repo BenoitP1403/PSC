@@ -1,0 +1,36 @@
+{
+    "study_name": "DQN",
+    "best_trial_number": 33,
+    "best_value": 92.34299908575913,
+    "best_params": {
+        "learning_rate": 0.00013459920212816894,
+        "gamma": 0.9088505300644467,
+        "buffer_size": 200000,
+        "batch_size": 32,
+        "tau": 0.008476125657881422,
+        "train_freq": 4,
+        "gradient_steps": 1,
+        "exploration_fraction": 0.38630830609922717,
+        "exploration_final_eps": 0.09945787171857927,
+        "target_update_interval": 1000
+    },
+    "trial_user_attrs": {
+        "seed_rewards": [
+            92.86999779716135,
+            104.12299877353013,
+            80.03600068658591
+        ]
+    },
+    "n_trials_completed": 50,
+    "saved_at_utc": "2026-03-12T11:56:24.800651+00:00",
+    "metadata": {
+        "algorithm": "DQN",
+        "total_timesteps": 100000,
+        "eval_episodes": 50,
+        "tune_seeds": [
+            0,
+            1,
+            2
+        ]
+    }
+}

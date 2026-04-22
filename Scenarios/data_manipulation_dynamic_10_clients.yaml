@@ -1,0 +1,1022 @@
+metadata:
+  version: 3.0
+
+io_settings:
+  save_agent_actions: true
+  save_step_metadata: false
+  save_pcap_logs: false
+  save_sys_logs: false
+  sys_log_level: WARNING
+
+game:
+  max_episode_length: 128
+  ports:
+    - HTTP
+    - POSTGRES_SERVER
+  protocols:
+    - ICMP
+    - TCP
+    - UDP
+  thresholds:
+    nmne:
+      high: 10
+      medium: 5
+      low: 0
+
+agents:
+  - ref: client_1_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_1, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_1, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_1}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_1}
+
+  - ref: client_2_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_2, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_2, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_2}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_2}
+
+  - ref: client_3_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_3, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_3, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_3}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_3}
+
+  - ref: client_4_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_4, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_4, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_4}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_4}
+
+  - ref: client_5_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_5, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_5, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_5}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_5}
+
+  - ref: client_6_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_6, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_6, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_6}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_6}
+
+  - ref: client_7_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_7, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_7, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_7}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_7}
+
+  - ref: client_8_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_8, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_8, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_8}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_8}
+
+  - ref: client_9_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_9, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_9, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_9}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_9}
+
+  - ref: client_10_green_user
+    team: GREEN
+    type: probabilistic-agent
+    agent_settings:
+      action_probabilities: {0: 0.3, 1: 0.6, 2: 0.1}
+    action_space:
+      action_map:
+        0: {action: do-nothing, options: {}}
+        1: {action: node-application-execute, options: {node_name: client_10, application_name: web-browser}}
+        2: {action: node-application-execute, options: {node_name: client_10, application_name: database-client}}
+    reward_function:
+      reward_components:
+        - type: webpage-unavailable-penalty
+          weight: 0.25
+          options: {node_hostname: client_10}
+        - type: green-admin-database-unreachable-penalty
+          weight: 0.05
+          options: {node_hostname: client_10}
+
+  - ref: data_manipulation_attacker
+    team: RED
+    type: red-database-corrupting-agent
+    agent_settings:
+      possible_start_nodes:
+        - client_1
+        - client_2
+        - client_3
+        - client_4
+        - client_5
+        - client_6
+        - client_7
+        - client_8
+        - client_9
+        - client_10
+      target_application: data-manipulation-bot
+      start_step: 25
+      frequency: 20
+      variance: 5
+
+  - ref: defender
+    team: BLUE
+    type: proxy-agent
+
+    observation_space:
+      type: custom
+      options:
+        components:
+          - type: nodes
+            label: NODES
+            options:
+              hosts:
+                - hostname: domain_controller
+                - hostname: web_server
+                  services:
+                    - service_name: web-server
+                - hostname: database_server
+                  folders:
+                    - folder_name: database
+                      files:
+                        - file_name: database.db
+                - hostname: backup_server
+                - hostname: security_suite
+                - hostname: client_1
+                - hostname: client_2
+                - hostname: client_3
+                - hostname: client_4
+                - hostname: client_5
+                - hostname: client_6
+                - hostname: client_7
+                - hostname: client_8
+                - hostname: client_9
+                - hostname: client_10
+              num_services: 1
+              num_applications: 0
+              num_folders: 1
+              num_files: 1
+              num_nics: 2
+              include_num_access: false
+              include_nmne: true
+              monitored_traffic:
+                icmp:
+                  - NONE
+                tcp:
+                  - DNS
+              routers:
+                - hostname: router_1
+              num_ports: 0
+              ip_list:
+                - 192.168.1.10
+                - 192.168.1.12
+                - 192.168.1.14
+                - 192.168.1.16
+                - 192.168.1.110
+                - 192.168.10.21
+                - 192.168.10.22
+                - 192.168.10.23
+                - 192.168.10.24
+                - 192.168.10.25
+                - 192.168.20.26
+                - 192.168.20.27
+                - 192.168.20.28
+                - 192.168.20.29
+                - 192.168.20.30
+              wildcard_list:
+                - 0.0.0.1
+              port_list:
+                - HTTP
+                - POSTGRES_SERVER
+              protocol_list:
+                - ICMP
+                - TCP
+                - UDP
+              num_rules: 24
+
+          - type: links
+            label: LINKS
+            options:
+              link_references:
+                - router_1:eth-1<->switch_1:eth-8
+                - router_1:eth-2<->switch_2:eth-8
+                - router_1:eth-3<->switch_3:eth-8
+                - switch_1:eth-1<->domain_controller:eth-1
+                - switch_1:eth-2<->web_server:eth-1
+                - switch_1:eth-3<->database_server:eth-1
+                - switch_1:eth-4<->backup_server:eth-1
+                - switch_1:eth-7<->security_suite:eth-1
+                - switch_2:eth-1<->client_1:eth-1
+                - switch_2:eth-2<->client_2:eth-1
+                - switch_2:eth-3<->client_3:eth-1
+                - switch_2:eth-4<->client_4:eth-1
+                - switch_2:eth-5<->client_5:eth-1
+                - switch_2:eth-7<->security_suite:eth-2
+                - switch_3:eth-1<->client_6:eth-1
+                - switch_3:eth-2<->client_7:eth-1
+                - switch_3:eth-3<->client_8:eth-1
+                - switch_3:eth-4<->client_9:eth-1
+                - switch_3:eth-5<->client_10:eth-1
+
+          - type: none
+            label: ICS
+            options: {}
+
+    action_space:
+      action_map:
+        0:   {action: do-nothing, options: {}}
+
+        1:   {action: node-service-scan, options: {node_name: web_server, service_name: web-server}}
+        2:   {action: node-service-stop, options: {node_name: web_server, service_name: web-server}}
+        3:   {action: node-service-start, options: {node_name: web_server, service_name: web-server}}
+        4:   {action: node-service-pause, options: {node_name: web_server, service_name: web-server}}
+        5:   {action: node-service-resume, options: {node_name: web_server, service_name: web-server}}
+        6:   {action: node-service-restart, options: {node_name: web_server, service_name: web-server}}
+        7:   {action: node-service-disable, options: {node_name: web_server, service_name: web-server}}
+        8:   {action: node-service-enable, options: {node_name: web_server, service_name: web-server}}
+
+        9:   {action: node-file-scan, options: {node_name: database_server, folder_name: database, file_name: database.db}}
+        10:  {action: node-file-scan, options: {node_name: database_server, folder_name: database, file_name: database.db}}
+        11:  {action: node-file-delete, options: {node_name: database_server, folder_name: database, file_name: database.db}}
+        12:  {action: node-file-repair, options: {node_name: database_server, folder_name: database, file_name: database.db}}
+        13:  {action: node-service-fix, options: {node_name: database_server, service_name: database-service}}
+        14:  {action: node-folder-scan, options: {node_name: database_server, folder_name: database}}
+        15:  {action: node-folder-scan, options: {node_name: database_server, folder_name: database}}
+        16:  {action: node-folder-repair, options: {node_name: database_server, folder_name: database}}
+        17:  {action: node-folder-restore, options: {node_name: database_server, folder_name: database}}
+
+        18:  {action: node-os-scan, options: {node_name: domain_controller}}
+        19:  {action: node-shutdown, options: {node_name: domain_controller}}
+        20:  {action: node-startup, options: {node_name: domain_controller}}
+        21:  {action: node-reset, options: {node_name: domain_controller}}
+
+        22:  {action: node-os-scan, options: {node_name: web_server}}
+        23:  {action: node-shutdown, options: {node_name: web_server}}
+        24:  {action: node-startup, options: {node_name: web_server}}
+        25:  {action: node-reset, options: {node_name: web_server}}
+
+        26:  {action: node-os-scan, options: {node_name: database_server}}
+        27:  {action: node-shutdown, options: {node_name: database_server}}
+        28:  {action: node-startup, options: {node_name: database_server}}
+        29:  {action: node-reset, options: {node_name: database_server}}
+
+        30:  {action: node-os-scan, options: {node_name: backup_server}}
+        31:  {action: node-shutdown, options: {node_name: backup_server}}
+        32:  {action: node-startup, options: {node_name: backup_server}}
+        33:  {action: node-reset, options: {node_name: backup_server}}
+
+        34:  {action: node-os-scan, options: {node_name: security_suite}}
+        35:  {action: node-shutdown, options: {node_name: security_suite}}
+        36:  {action: node-startup, options: {node_name: security_suite}}
+        37:  {action: node-reset, options: {node_name: security_suite}}
+
+        38:  {action: router-acl-add-rule, options: {target_router: router_1, position: 6,  permission: DENY, src_ip: 192.168.10.21, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        39:  {action: router-acl-add-rule, options: {target_router: router_1, position: 7,  permission: DENY, src_ip: 192.168.10.21, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        40:  {action: router-acl-add-rule, options: {target_router: router_1, position: 8,  permission: DENY, src_ip: 192.168.10.21, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        41:  {action: router-acl-add-rule, options: {target_router: router_1, position: 9,  permission: DENY, src_ip: 192.168.10.22, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        42:  {action: router-acl-add-rule, options: {target_router: router_1, position: 10, permission: DENY, src_ip: 192.168.10.22, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        43:  {action: router-acl-add-rule, options: {target_router: router_1, position: 11, permission: DENY, src_ip: 192.168.10.22, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        44:  {action: router-acl-add-rule, options: {target_router: router_1, position: 12, permission: DENY, src_ip: 192.168.10.23, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        45:  {action: router-acl-add-rule, options: {target_router: router_1, position: 13, permission: DENY, src_ip: 192.168.10.23, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        46:  {action: router-acl-add-rule, options: {target_router: router_1, position: 14, permission: DENY, src_ip: 192.168.10.23, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        47:  {action: router-acl-add-rule, options: {target_router: router_1, position: 15, permission: DENY, src_ip: 192.168.10.24, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        48:  {action: router-acl-add-rule, options: {target_router: router_1, position: 16, permission: DENY, src_ip: 192.168.10.24, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        49:  {action: router-acl-add-rule, options: {target_router: router_1, position: 17, permission: DENY, src_ip: 192.168.10.24, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        50:  {action: router-acl-add-rule, options: {target_router: router_1, position: 18, permission: DENY, src_ip: 192.168.10.25, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        51:  {action: router-acl-add-rule, options: {target_router: router_1, position: 19, permission: DENY, src_ip: 192.168.10.25, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        52:  {action: router-acl-add-rule, options: {target_router: router_1, position: 20, permission: DENY, src_ip: 192.168.10.25, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        53:  {action: router-acl-add-rule, options: {target_router: router_1, position: 21, permission: DENY, src_ip: 192.168.20.26, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        54:  {action: router-acl-add-rule, options: {target_router: router_1, position: 22, permission: DENY, src_ip: 192.168.20.26, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        55:  {action: router-acl-add-rule, options: {target_router: router_1, position: 23, permission: DENY, src_ip: 192.168.20.26, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        56:  {action: router-acl-add-rule, options: {target_router: router_1, position: 24, permission: DENY, src_ip: 192.168.20.27, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        57:  {action: router-acl-add-rule, options: {target_router: router_1, position: 25, permission: DENY, src_ip: 192.168.20.27, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        58:  {action: router-acl-add-rule, options: {target_router: router_1, position: 26, permission: DENY, src_ip: 192.168.20.27, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        59:  {action: router-acl-add-rule, options: {target_router: router_1, position: 27, permission: DENY, src_ip: 192.168.20.28, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        60:  {action: router-acl-add-rule, options: {target_router: router_1, position: 28, permission: DENY, src_ip: 192.168.20.28, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        61:  {action: router-acl-add-rule, options: {target_router: router_1, position: 29, permission: DENY, src_ip: 192.168.20.28, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        62:  {action: router-acl-add-rule, options: {target_router: router_1, position: 30, permission: DENY, src_ip: 192.168.20.29, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        63:  {action: router-acl-add-rule, options: {target_router: router_1, position: 31, permission: DENY, src_ip: 192.168.20.29, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        64:  {action: router-acl-add-rule, options: {target_router: router_1, position: 32, permission: DENY, src_ip: 192.168.20.29, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        65:  {action: router-acl-add-rule, options: {target_router: router_1, position: 33, permission: DENY, src_ip: 192.168.20.30, dst_ip: ALL,         src_port: ALL, dst_port: ALL, protocol_name: ALL, src_wildcard: NONE, dst_wildcard: NONE}}
+        66:  {action: router-acl-add-rule, options: {target_router: router_1, position: 34, permission: DENY, src_ip: 192.168.20.30, dst_ip: 192.168.1.12, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+        67:  {action: router-acl-add-rule, options: {target_router: router_1, position: 35, permission: DENY, src_ip: 192.168.20.30, dst_ip: 192.168.1.14, src_port: ALL, dst_port: ALL, protocol_name: TCP, src_wildcard: NONE, dst_wildcard: NONE}}
+
+        68:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 6}}
+        69:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 7}}
+        70:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 8}}
+        71:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 9}}
+        72:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 10}}
+        73:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 11}}
+        74:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 12}}
+        75:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 13}}
+        76:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 14}}
+        77:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 15}}
+        78:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 16}}
+        79:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 17}}
+        80:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 18}}
+        81:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 19}}
+        82:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 20}}
+        83:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 21}}
+        84:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 22}}
+        85:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 23}}
+        86:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 24}}
+        87:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 25}}
+        88:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 26}}
+        89:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 27}}
+        90:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 28}}
+        91:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 29}}
+        92:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 30}}
+        93:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 31}}
+        94:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 32}}
+        95:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 33}}
+        96:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 34}}
+        97:  {action: router-acl-remove-rule, options: {target_router: router_1, position: 35}}
+
+        98:  {action: host-nic-disable, options: {node_name: domain_controller, nic_num: 1}}
+        99:  {action: host-nic-enable, options: {node_name: domain_controller, nic_num: 1}}
+        100: {action: host-nic-disable, options: {node_name: web_server, nic_num: 1}}
+        101: {action: host-nic-enable, options: {node_name: web_server, nic_num: 1}}
+        102: {action: host-nic-disable, options: {node_name: database_server, nic_num: 1}}
+        103: {action: host-nic-enable, options: {node_name: database_server, nic_num: 1}}
+        104: {action: host-nic-disable, options: {node_name: backup_server, nic_num: 1}}
+        105: {action: host-nic-enable, options: {node_name: backup_server, nic_num: 1}}
+        106: {action: host-nic-disable, options: {node_name: security_suite, nic_num: 1}}
+        107: {action: host-nic-enable, options: {node_name: security_suite, nic_num: 1}}
+        108: {action: host-nic-disable, options: {node_name: security_suite, nic_num: 2}}
+        109: {action: host-nic-enable, options: {node_name: security_suite, nic_num: 2}}
+
+        110: {action: node-os-scan, options: {node_name: client_1}}
+        111: {action: node-shutdown, options: {node_name: client_1}}
+        112: {action: node-startup, options: {node_name: client_1}}
+        113: {action: node-reset, options: {node_name: client_1}}
+        114: {action: host-nic-disable, options: {node_name: client_1, nic_num: 1}}
+        115: {action: host-nic-enable, options: {node_name: client_1, nic_num: 1}}
+
+        116: {action: node-os-scan, options: {node_name: client_2}}
+        117: {action: node-shutdown, options: {node_name: client_2}}
+        118: {action: node-startup, options: {node_name: client_2}}
+        119: {action: node-reset, options: {node_name: client_2}}
+        120: {action: host-nic-disable, options: {node_name: client_2, nic_num: 1}}
+        121: {action: host-nic-enable, options: {node_name: client_2, nic_num: 1}}
+
+        122: {action: node-os-scan, options: {node_name: client_3}}
+        123: {action: node-shutdown, options: {node_name: client_3}}
+        124: {action: node-startup, options: {node_name: client_3}}
+        125: {action: node-reset, options: {node_name: client_3}}
+        126: {action: host-nic-disable, options: {node_name: client_3, nic_num: 1}}
+        127: {action: host-nic-enable, options: {node_name: client_3, nic_num: 1}}
+
+        128: {action: node-os-scan, options: {node_name: client_4}}
+        129: {action: node-shutdown, options: {node_name: client_4}}
+        130: {action: node-startup, options: {node_name: client_4}}
+        131: {action: node-reset, options: {node_name: client_4}}
+        132: {action: host-nic-disable, options: {node_name: client_4, nic_num: 1}}
+        133: {action: host-nic-enable, options: {node_name: client_4, nic_num: 1}}
+
+        134: {action: node-os-scan, options: {node_name: client_5}}
+        135: {action: node-shutdown, options: {node_name: client_5}}
+        136: {action: node-startup, options: {node_name: client_5}}
+        137: {action: node-reset, options: {node_name: client_5}}
+        138: {action: host-nic-disable, options: {node_name: client_5, nic_num: 1}}
+        139: {action: host-nic-enable, options: {node_name: client_5, nic_num: 1}}
+
+        140: {action: node-os-scan, options: {node_name: client_6}}
+        141: {action: node-shutdown, options: {node_name: client_6}}
+        142: {action: node-startup, options: {node_name: client_6}}
+        143: {action: node-reset, options: {node_name: client_6}}
+        144: {action: host-nic-disable, options: {node_name: client_6, nic_num: 1}}
+        145: {action: host-nic-enable, options: {node_name: client_6, nic_num: 1}}
+
+        146: {action: node-os-scan, options: {node_name: client_7}}
+        147: {action: node-shutdown, options: {node_name: client_7}}
+        148: {action: node-startup, options: {node_name: client_7}}
+        149: {action: node-reset, options: {node_name: client_7}}
+        150: {action: host-nic-disable, options: {node_name: client_7, nic_num: 1}}
+        151: {action: host-nic-enable, options: {node_name: client_7, nic_num: 1}}
+
+        152: {action: node-os-scan, options: {node_name: client_8}}
+        153: {action: node-shutdown, options: {node_name: client_8}}
+        154: {action: node-startup, options: {node_name: client_8}}
+        155: {action: node-reset, options: {node_name: client_8}}
+        156: {action: host-nic-disable, options: {node_name: client_8, nic_num: 1}}
+        157: {action: host-nic-enable, options: {node_name: client_8, nic_num: 1}}
+
+        158: {action: node-os-scan, options: {node_name: client_9}}
+        159: {action: node-shutdown, options: {node_name: client_9}}
+        160: {action: node-startup, options: {node_name: client_9}}
+        161: {action: node-reset, options: {node_name: client_9}}
+        162: {action: host-nic-disable, options: {node_name: client_9, nic_num: 1}}
+        163: {action: host-nic-enable, options: {node_name: client_9, nic_num: 1}}
+
+        164: {action: node-os-scan, options: {node_name: client_10}}
+        165: {action: node-shutdown, options: {node_name: client_10}}
+        166: {action: node-startup, options: {node_name: client_10}}
+        167: {action: node-reset, options: {node_name: client_10}}
+        168: {action: host-nic-disable, options: {node_name: client_10, nic_num: 1}}
+        169: {action: host-nic-enable, options: {node_name: client_10, nic_num: 1}}
+
+    reward_function:
+      reward_components:
+        - type: database-file-integrity
+          weight: 0.40
+          options:
+            node_hostname: database_server
+            folder_name: database
+            file_name: database.db
+
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_1_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_2_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_3_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_4_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_5_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_6_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_7_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_8_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_9_green_user}
+        - type: shared-reward
+          weight: 1.0
+          options: {agent_name: client_10_green_user}
+
+    agent_settings:
+      flatten_obs: true
+      action_masking: true
+
+simulation:
+  network:
+    nmne_config:
+      capture_nmne: true
+      nmne_capture_keywords:
+        - DELETE
+
+    nodes:
+      - hostname: router_1
+        type: router
+        num_ports: 6
+        ports:
+          1:
+            ip_address: 192.168.1.1
+            subnet_mask: 255.255.255.0
+          2:
+            ip_address: 192.168.10.1
+            subnet_mask: 255.255.255.0
+          3:
+            ip_address: 192.168.20.1
+            subnet_mask: 255.255.255.0
+        acl:
+          18:
+            action: PERMIT
+            src_port: POSTGRES_SERVER
+            dst_port: POSTGRES_SERVER
+          19:
+            action: PERMIT
+            src_port: DNS
+            dst_port: DNS
+          20:
+            action: PERMIT
+            src_port: FTP
+            dst_port: FTP
+          21:
+            action: PERMIT
+            src_port: HTTP
+            dst_port: HTTP
+          22:
+            action: PERMIT
+            src_port: ARP
+            dst_port: ARP
+          23:
+            action: PERMIT
+            protocol: ICMP
+
+      - hostname: switch_1
+        type: switch
+        num_ports: 8
+
+      - hostname: switch_2
+        type: switch
+        num_ports: 8
+
+      - hostname: switch_3
+        type: switch
+        num_ports: 8
+
+      - hostname: domain_controller
+        type: server
+        ip_address: 192.168.1.10
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.1.1
+        services:
+          - type: dns-server
+            options:
+              domain_mapping:
+                arcd.com: 192.168.1.12
+
+      - hostname: web_server
+        type: server
+        ip_address: 192.168.1.12
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.1.1
+        dns_server: 192.168.1.10
+        services:
+          - type: web-server
+        applications:
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+
+      - hostname: database_server
+        type: server
+        ip_address: 192.168.1.14
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.1.1
+        dns_server: 192.168.1.10
+        services:
+          - type: database-service
+            options:
+              backup_server_ip: 192.168.1.16
+          - type: ftp-client
+
+      - hostname: backup_server
+        type: server
+        ip_address: 192.168.1.16
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.1.1
+        dns_server: 192.168.1.10
+        services:
+          - type: ftp-server
+
+      - hostname: security_suite
+        type: server
+        ip_address: 192.168.1.110
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.1.1
+        dns_server: 192.168.1.10
+        network_interfaces:
+          2:
+            ip_address: 192.168.10.110
+            subnet_mask: 255.255.255.0
+
+      - hostname: client_1
+        type: computer
+        ip_address: 192.168.10.21
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.10.1
+        dns_server: 192.168.1.10
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_2
+        type: computer
+        ip_address: 192.168.10.22
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.10.1
+        dns_server: 192.168.1.10
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_3
+        type: computer
+        ip_address: 192.168.10.23
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.10.1
+        dns_server: 192.168.1.10
+        operating_state: OFF
+        start_up_duration: 46
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_4
+        type: computer
+        ip_address: 192.168.10.24
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.10.1
+        dns_server: 192.168.1.10
+        operating_state: OFF
+        start_up_duration: 52
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_5
+        type: computer
+        ip_address: 192.168.10.25
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.10.1
+        dns_server: 192.168.1.10
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_6
+        type: computer
+        ip_address: 192.168.20.26
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.20.1
+        dns_server: 192.168.1.10
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_7
+        type: computer
+        ip_address: 192.168.20.27
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.20.1
+        dns_server: 192.168.1.10
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_8
+        type: computer
+        ip_address: 192.168.20.28
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.20.1
+        dns_server: 192.168.1.10
+        operating_state: OFF
+        start_up_duration: 35
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_9
+        type: computer
+        ip_address: 192.168.20.29
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.20.1
+        dns_server: 192.168.1.10
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+      - hostname: client_10
+        type: computer
+        ip_address: 192.168.20.30
+        subnet_mask: 255.255.255.0
+        default_gateway: 192.168.20.1
+        dns_server: 192.168.1.10
+        operating_state: OFF
+        start_up_duration: 60
+        applications:
+          - type: data-manipulation-bot
+            options:
+              port_scan_p_of_success: 0.8
+              data_manipulation_p_of_success: 0.8
+              payload: "DELETE"
+              server_ip: 192.168.1.14
+          - type: web-browser
+            options:
+              target_url: http://arcd.com/users/
+          - type: database-client
+            options:
+              db_server_ip: 192.168.1.14
+        services:
+          - type: dns-client
+
+    links:
+      - endpoint_a_hostname: router_1
+        endpoint_a_port: 1
+        endpoint_b_hostname: switch_1
+        endpoint_b_port: 8
+
+      - endpoint_a_hostname: router_1
+        endpoint_a_port: 2
+        endpoint_b_hostname: switch_2
+        endpoint_b_port: 8
+
+      - endpoint_a_hostname: router_1
+        endpoint_a_port: 3
+        endpoint_b_hostname: switch_3
+        endpoint_b_port: 8
+
+      - endpoint_a_hostname: switch_1
+        endpoint_a_port: 1
+        endpoint_b_hostname: domain_controller
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_1
+        endpoint_a_port: 2
+        endpoint_b_hostname: web_server
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_1
+        endpoint_a_port: 3
+        endpoint_b_hostname: database_server
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_1
+        endpoint_a_port: 4
+        endpoint_b_hostname: backup_server
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_1
+        endpoint_a_port: 7
+        endpoint_b_hostname: security_suite
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_2
+        endpoint_a_port: 1
+        endpoint_b_hostname: client_1
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_2
+        endpoint_a_port: 2
+        endpoint_b_hostname: client_2
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_2
+        endpoint_a_port: 3
+        endpoint_b_hostname: client_3
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_2
+        endpoint_a_port: 4
+        endpoint_b_hostname: client_4
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_2
+        endpoint_a_port: 5
+        endpoint_b_hostname: client_5
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_2
+        endpoint_a_port: 7
+        endpoint_b_hostname: security_suite
+        endpoint_b_port: 2
+
+      - endpoint_a_hostname: switch_3
+        endpoint_a_port: 1
+        endpoint_b_hostname: client_6
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_3
+        endpoint_a_port: 2
+        endpoint_b_hostname: client_7
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_3
+        endpoint_a_port: 3
+        endpoint_b_hostname: client_8
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_3
+        endpoint_a_port: 4
+        endpoint_b_hostname: client_9
+        endpoint_b_port: 1
+
+      - endpoint_a_hostname: switch_3
+        endpoint_a_port: 5
+        endpoint_b_hostname: client_10
+        endpoint_b_port: 1

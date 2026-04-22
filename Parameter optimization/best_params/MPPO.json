@@ -1,0 +1,34 @@
+{
+    "study_name": "MPPO",
+    "best_trial_number": 5,
+    "best_value": 93.76266701437532,
+    "best_params": {
+        "learning_rate": 0.0002870875348195468,
+        "gamma": 0.977049907633926,
+        "n_steps": 1024,
+        "batch_size": 32,
+        "ent_coef": 0.000828752236376816,
+        "clip_range": 0.29126724140656396,
+        "n_epochs": 14,
+        "gae_lambda": 0.9472214925161949
+    },
+    "trial_user_attrs": {
+        "seed_rewards": [
+            147.99199597373604,
+            20.416001334711908,
+            112.88000373467803
+        ]
+    },
+    "n_trials_completed": 50,
+    "saved_at_utc": "2026-03-12T13:41:03.595423+00:00",
+    "metadata": {
+        "algorithm": "MPPO",
+        "total_timesteps": 100000,
+        "eval_episodes": 50,
+        "tune_seeds": [
+            0,
+            1,
+            2
+        ]
+    }
+}

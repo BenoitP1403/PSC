@@ -1,0 +1,32 @@
+{
+    "study_name": "A2C",
+    "best_trial_number": 31,
+    "best_value": 50.18266719564796,
+    "best_params": {
+        "learning_rate": 0.00023533306182999756,
+        "gamma": 0.935118684050429,
+        "n_steps": 50,
+        "ent_coef": 0.00020588176652542773,
+        "gae_lambda": 0.9941718038402904,
+        "vf_coef": 0.29939325910732034
+    },
+    "trial_user_attrs": {
+        "seed_rewards": [
+            50.217000513002276,
+            49.3030005223304,
+            51.028000551611186
+        ]
+    },
+    "n_trials_completed": 50,
+    "saved_at_utc": "2026-03-12T11:53:52.561087+00:00",
+    "metadata": {
+        "algorithm": "A2C",
+        "total_timesteps": 100000,
+        "eval_episodes": 50,
+        "tune_seeds": [
+            0,
+            1,
+            2
+        ]
+    }
+}
