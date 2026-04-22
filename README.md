@@ -2,7 +2,7 @@
 
 Ce dépôt regroupe l'ensemble des travaux d'apprentissage par renforcement menés sur [**PrimAITE**](https://github.com/Alan-Turing-Institute/PrimAITE), une plateforme de simulation cybersécurité dans laquelle un *Blue Agent* apprend à défendre un réseau contre un *Red Agent* exécutant des campagnes d'attaque (principalement du **data manipulation**).
 
-Le projet explore et compare plusieurs approches RL — algorithmes classiques (Q-Learning, REINFORCE), algorithmes profonds via Stable-Baselines3 (PPO, A2C, DQN, MaskablePPO), une approche **padding** pour topologies dynamiques, et une approche **GNN** qui exploite nativement la structure de graphe du réseau.
+Le projet explore et compare plusieurs approches RL - algorithmes classiques (Q-Learning, REINFORCE), algorithmes profonds via Stable-Baselines3 (PPO, A2C, DQN, MaskablePPO), une approche **padding** pour topologies dynamiques, et une approche **GNN** qui exploite nativement la structure de graphe du réseau.
 
 ## Contenu du dépôt
 
