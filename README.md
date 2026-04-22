@@ -13,7 +13,7 @@ Le projet explore et compare plusieurs approches RL - algorithmes classiques (Q-
 ├── Padding/                # Approche padding + MaskablePPO (topologies dynamiques)
 ├── Parameter optimization/ # Tuning Optuna des hyperparamètres SB3
 ├── SB3 vanilla/            # Entraînement PPO/DQN/A2C/MaskablePPO de référence
-├── Scenarios/              # Scénarios YAML PrimAITE (partagés par tous les modules)
+└── Scenarios/              # Scénarios YAML PrimAITE (partagés par tous les modules)
 ```
 
 ### `GNN/`
