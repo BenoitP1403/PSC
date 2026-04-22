@@ -1,0 +1,25 @@
+# PrimAITE doit être installé séparément depuis les sources
+# (voir section Installation du README racine).
+#
+# Dépendances du projet, installer après PrimAITE dans le même venv :
+
+# --- Cœur RL (SB3 vanilla, Padding, Parameter optimization) ---
+stable-baselines3
+sb3-contrib
+gymnasium
+
+# --- Optimisation d'hyperparamètres (Parameter optimization) ---
+optuna
+
+# --- Calcul scientifique et visualisation (tous les modules) ---
+numpy
+matplotlib
+pyyaml
+
+# --- Module GNN (GNN/) ---
+torch
+torch-geometric
+platformdirs
+
+# --- Module Mouse (visualisation Q-Learning / REINFORCE) ---
+pygame

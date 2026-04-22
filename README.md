@@ -35,11 +35,39 @@ Entraînement de référence « sans fioritures » : un scénario PrimAITE + un 
 Contient les fichiers YAML décrivant les scénarios PrimAITE utilisés dans tout le projet (data manipulation, variantes 3-PC / curriculum, etc.). Voir `Scenarios/README.md` pour le détail de chaque scénario.
 
 
-## Prérequis globaux
+## Installation
 
-- Python ≥ 3.10
+### 1. Installer PrimAITE
+Ce projet dépend de [PrimAITE](https://github.com/Autonomous-Resilient-Cyber-Defence/PrimAITE), qui nécessite **Python 3.9–3.12** et une **toolchain Rust**. L'installation ne se fait pas depuis PyPI mais depuis les sources :
+
+```bash
+# Créer et activer un venv (Python 3.9–3.12)
+python -m venv .venv
+source .venv/bin/activate
+
+# Cloner et installer PrimAITE en éditable
+git clone https://github.com/Autonomous-Resilient-Cyber-Defence/PrimAITE.git
+cd PrimAITE
+python -m pip install -e .[dev,rl]
+primaite setup
+cd ..
+```
+
+Pour les détails (installation de Python, Rust, dépannage), se référer au [INSTALL.md de PrimAITE](https://github.com/Autonomous-Resilient-Cyber-Defence/PrimAITE/blob/main/INSTALL.md).
+
+### 2. Installer les dépendances de ce projet
+Depuis la racine de ce dépôt, dans le même venv :
+
+```bash
+pip install -r requirements.txt
+```
+
+### Prérequis résumés
+- Python 3.9–3.12 (contrainte PrimAITE)
+- Rust (`rustup`, `cargo`)
 - `primaite`, `stable-baselines3`, `sb3-contrib`, `gymnasium`, `optuna`, `pyyaml`, `numpy`, `matplotlib`
-- Pour le module GNN : `torch`, `torch-geometric`
+- Pour le module GNN : `torch`, `torch-geometric`, `platformdirs`
+- Pour le module Mouse : `pygame`
 
 ## Objectif global
 
