@@ -1,4 +1,4 @@
-# Projet PrimAITE — Apprentissage par renforcement pour la défense réseau
+# Projet PrimAITE - Apprentissage par renforcement pour la défense réseau
 
 Ce dépôt regroupe l'ensemble des travaux d'apprentissage par renforcement menés sur [**PrimAITE**](https://github.com/Alan-Turing-Institute/PrimAITE), une plateforme de simulation cybersécurité dans laquelle un *Blue Agent* apprend à défendre un réseau contre un *Red Agent* exécutant des campagnes d'attaque (principalement du **data manipulation**).
 
@@ -20,7 +20,7 @@ Le projet explore et compare plusieurs approches RL - algorithmes classiques (Q-
 Approche **Graph Neural Network** qui exploite la structure de graphe du réseau PrimAITE. Utilise PyTorch Geometric (GINEConv / HeteroConv) avec un apprentissage par **curriculum** en 5 étapes (introduction progressive de nouveaux scénarios). Produit l'agent de comparaison directe avec l'approche padding sur les mêmes métriques d'évaluation.
 
 ### `Mouse/`
-Implémentations **pédagogiques** de Q-Learning (Sarsamax, off-policy) et REINFORCE (policy gradient, on-policy) à partir de NumPy, sur une tâche jouet de navigation en grille. Ne dépend pas de PrimAITE — sert à illustrer les concepts fondamentaux de RL qui sous-tendent les modules SB3/Padding/GNN.
+Implémentations **pédagogiques** de Q-Learning (Sarsamax, off-policy) et REINFORCE (policy gradient, on-policy) à partir de NumPy, sur une tâche jouet de navigation en grille. Ne dépend pas de PrimAITE - sert à illustrer les concepts fondamentaux de RL qui sous-tendent les modules SB3/Padding/GNN.
 
 ### `Padding/`
 Approche **padding** pour environnements à topologie variable : observation et action maintenues à **taille fixe**, avec bits de présence par nœud, masquage dur des actions (`ActionMasker`) et randomisation de domaine par épisode. Entraîne un `MaskablePPO` dans trois modes : `static`, `dynamic`, `randomized`. Sert de contrepartie à l'approche GNN.
