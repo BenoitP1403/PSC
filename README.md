@@ -12,7 +12,7 @@ Le projet explore et compare plusieurs approches RL - algorithmes classiques (Q-
 ├── Mouse/                  # Implémentations pédagogiques Q-Learning et REINFORCE
 ├── Padding/                # Approche padding + MaskablePPO (topologies dynamiques)
 ├── Parameter optimization/ # Tuning Optuna des hyperparamètres SB3
-├── SB3 vanilla/            # Entraînement PPO/DQN/A2C/MaskablePPO de référence
+├── SB3 PPO benchmark/            # Entraînement PPO/DQN/A2C/MaskablePPO de référence
 └── Scenarios/              # Scénarios YAML PrimAITE (partagés par tous les modules)
 ```
 
@@ -26,9 +26,9 @@ Implémentations **pédagogiques** de Q-Learning (Sarsamax, off-policy) et REINF
 Approche **padding** pour environnements à topologie variable : observation et action maintenues à **taille fixe**, avec bits de présence par nœud, masquage dur des actions (`ActionMasker`) et randomisation de domaine par épisode. Entraîne un `MaskablePPO` dans trois modes : `static`, `dynamic`, `randomized`. Sert de contrepartie à l'approche GNN.
 
 ### `Parameter optimization/`
-Optimisation des hyperparamètres via [**Optuna**](https://optuna.org/) (TPE sampler + Median pruner) pour chaque algorithme SB3 (PPO, MaskablePPO, A2C, DQN). Les meilleurs jeux d'hyperparamètres sont sérialisés en JSON dans `best_params/` et consommés par `SB3 vanilla/train.py`. Permet de garantir que les comparaisons inter-algorithmes se font à hyperparamètres calibrés plutôt qu'arbitraires.
+Optimisation des hyperparamètres via [**Optuna**](https://optuna.org/) (TPE sampler + Median pruner) pour chaque algorithme SB3 (PPO, MaskablePPO, A2C, DQN). Les meilleurs jeux d'hyperparamètres sont sérialisés en JSON dans `best_params/` et consommés par `SB3 PPO benchmark/train.py`. Permet de garantir que les comparaisons inter-algorithmes se font à hyperparamètres calibrés plutôt qu'arbitraires.
 
-### `SB3 vanilla/`
+### `SB3 PPO benchmark/`
 Entraînement de référence « sans fioritures » : un scénario PrimAITE + un algorithme SB3 (PPO, DQN, A2C, MaskablePPO) avec les hyperparamètres calibrés par `Parameter optimization/`. Sert de **baseline** pour les approches plus avancées (Padding, GNN).
 
 ### `Scenarios/`
