@@ -1,11 +1,11 @@
-# SB3 Vanilla — Entraînement PPO/DQN/A2C/MaskablePPO sur PrimAITE
+# Standard SB3 Agent - Entraînement PPO/DQN/A2C/MaskablePPO sur PrimAITE
 
-Ce dossier contient le **baseline Stable-Baselines3 (vanilla)** pour l’entraînement d’un agent défenseur sur PrimAITE, **sans GNN ni padding** de l’espace d’observation/action. Il sert de **point de comparaison** aux approches plus élaborées du dossier `GNN/` (PPO avec encodeur *Graph Neural Network* hétérogène). L’agent est entraîné avec une simple `MlpPolicy` sur l’observation vectorielle fournie nativement par PrimAITE, en utilisant les hyperparamètres optimisés dans le dossier `Parameter optimization/`.
+Ce dossier contient le **baseline Stable-Baselines3** pour l’entraînement d’un agent défenseur sur PrimAITE, **sans GNN ni padding** de l’espace d’observation/action. Il sert de **point de comparaison** aux approches plus élaborées du dossier `GNN/` (PPO avec encodeur *Graph Neural Network* hétérogène). L’agent est entraîné avec une simple `MlpPolicy` sur l’observation vectorielle fournie nativement par PrimAITE, en utilisant les hyperparamètres optimisés dans le dossier `Parameter optimization/`.
 
 ## Contenu du dossier
 
 ```
-SB3 vanilla/
+Standard SB3 Agent/
 └── train.py     # Script d'entraînement SB3 (PPO, MaskablePPO, A2C, DQN) sur un scénario PrimAITE
 ```
 
