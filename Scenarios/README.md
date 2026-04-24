@@ -1,6 +1,6 @@
-# Scenarios — Fichiers YAML de scénarios PrimAITE
+# Scenarios - Fichiers YAML de scénarios PrimAITE
 
-Ce dossier regroupe l’ensemble des fichiers de configuration YAML décrivant les scénarios de cybersécurité utilisés par les différents modules du projet (`GNN/`, `SB3 vanilla/`, `Parameter optimization/`). Ces scénarios sont centrés sur le **data manipulation** : ils servent à étudier la résilience opérationnelle d’un système d’information face à des attaques visant l’intégrité des données, tout en prenant en compte la continuité de service.
+Ce dossier regroupe l’ensemble des fichiers de configuration YAML décrivant les scénarios de cybersécurité utilisés par les différents modules du projet (`GNN/`, `SB3 agent/`, `Parameter optimization/`). Ces scénarios sont centrés sur le **data manipulation** : ils servent à étudier la résilience opérationnelle d’un système d’information face à des attaques visant l’intégrité des données, tout en prenant en compte la continuité de service.
 
 ## Contenu du dossier
 
@@ -145,9 +145,9 @@ Elle permet d’étudier le comportement des agents dans un cadre plus large, pl
 
 Ces fichiers sont consommés par plusieurs modules du projet :
 
-- `GNN/GNN_single_scenario.py` et `GNN/GNN_multiscenario.py` — entraînement PPO-GNN
-- `SB3 vanilla/train.py` — baseline SB3 (PPO, MaskablePPO, A2C, DQN)
-- `Parameter optimization/optimize_parameters.py` — optimisation Optuna des hyperparamètres
+- `GNN/GNN_single_scenario.py` et `GNN/GNN_multiscenario.py` - entraînement PPO-GNN
+- `SB3 agent/train.py` - baseline SB3 (PPO, MaskablePPO, A2C, DQN)
+- `Parameter optimization/optimize_parameters.py` - optimisation Optuna des hyperparamètres
 
 Les chemins dans ces scripts pointent vers ce dossier à la racine du projet (`Scenarios/`).
 

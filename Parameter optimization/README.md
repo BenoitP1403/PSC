@@ -1,6 +1,6 @@
-# Parameter optimization — Tuning Optuna des hyperparamètres SB3
+# Parameter optimization - Tuning Optuna des hyperparamètres SB3
 
-Ce dossier regroupe les scripts d’**optimisation d’hyperparamètres** pour les algorithmes Stable-Baselines3 (PPO, MaskablePPO, A2C, DQN) appliqués à un scénario PrimAITE. Le tuning utilise [**Optuna**](https://optuna.org/) avec un sampler **TPE** (Tree-structured Parzen Estimator) et un pruner **Median** pour explorer efficacement l’espace de recherche. Les meilleurs hyperparamètres trouvés sont sérialisés en JSON et ensuite consommés par le script `SB3 vanilla/train.py` pour l’entraînement final.
+Ce dossier regroupe les scripts d’**optimisation d’hyperparamètres** pour les algorithmes Stable-Baselines3 (PPO, MaskablePPO, A2C, DQN) appliqués à un scénario PrimAITE. Le tuning utilise [**Optuna**](https://optuna.org/) avec un sampler **TPE** (Tree-structured Parzen Estimator) et un pruner **Median** pour explorer efficacement l’espace de recherche. Les meilleurs hyperparamètres trouvés sont sérialisés en JSON et ensuite consommés par le script `SB3 agent/train.py` pour l’entraînement final.
 
 ## Contenu du dossier
 
@@ -20,18 +20,18 @@ Parameter optimization/
 Point d’entrée en ligne de commande. Charge le scénario PrimAITE (par défaut `../Scenarios/data_manipulation_3_pc.yaml`), sélectionne la fonction objectif correspondant à l’algorithme choisi, puis lance l’étude Optuna via `study_algorithm`.
 
 Argument CLI :
-- `--algo {PPO,MPPO,DQN,A2C}` — choix de l’algorithme à optimiser (obligatoire)
+- `--algo {PPO,MPPO,DQN,A2C}` - choix de l’algorithme à optimiser (obligatoire)
 
 Constantes (modifiables directement dans le fichier) :
-- `N_TRIALS = 50` — nombre de trials Optuna
-- `TOTAL_TIMESTEPS = 100_000` — durée d’entraînement par trial
-- `N_EVAL_EPISODES = 50` — épisodes d’évaluation par seed
-- `TUNE_SEEDS = [0, 1, 2]` — seeds utilisées pour chaque trial (moyenne des 3 récompenses)
+- `N_TRIALS = 50` - nombre de trials Optuna
+- `TOTAL_TIMESTEPS = 100_000` - durée d’entraînement par trial
+- `N_EVAL_EPISODES = 50` - épisodes d’évaluation par seed
+- `TUNE_SEEDS = [0, 1, 2]` - seeds utilisées pour chaque trial (moyenne des 3 récompenses)
 
 ### `study_algorithm.py`
 Gère toute la mécanique Optuna :
 - création de l’étude avec **`TPESampler(seed=42)`** et **`MedianPruner`** (prune un trial si sa récompense moyenne courante est en dessous de la médiane des trials précédents au même step)
-- persistance de l’étude dans une base SQLite locale (`best_params/optuna_studies.db`) — permet la reprise d’une étude interrompue
+- persistance de l’étude dans une base SQLite locale (`best_params/optuna_studies.db`) - permet la reprise d’une étude interrompue
 - sauvegarde du meilleur trial au format JSON (`best_params/<ALGO>.json`) avec métadonnées (study name, best_value, best_params, seed rewards, timestamp UTC)
 
 Expose aussi `load_env_config` et `make_env` utilisés par les fonctions objectif.
@@ -51,8 +51,8 @@ Les combinaisons incohérentes (par ex. `batch_size > n_steps` ou `n_steps % bat
 
 ### `best_params/`
 Stocke deux types d’artefacts :
-- **`<ALGO>.json`** — meilleurs hyperparamètres trouvés, sérialisés avec le nom de l’étude, la meilleure valeur, les récompenses par seed, et des métadonnées (timesteps d’entraînement, nombre d’épisodes d’éval, seeds utilisées, timestamp). Consommés par `SB3 vanilla/train.py`.
-- **`optuna_studies.db`** — base SQLite Optuna contenant l’intégralité des trials pour chaque étude (utile pour reprise, inspection, visualisation).
+- **`<ALGO>.json`** - meilleurs hyperparamètres trouvés, sérialisés avec le nom de l’étude, la meilleure valeur, les récompenses par seed, et des métadonnées (timesteps d’entraînement, nombre d’épisodes d’éval, seeds utilisées, timestamp). Consommés par `SB3 agent/train.py`.
+- **`optuna_studies.db`** - base SQLite Optuna contenant l’intégralité des trials pour chaque étude (utile pour reprise, inspection, visualisation).
 
 ## Prérequis
 
@@ -90,4 +90,4 @@ print(study.best_params, study.best_value)
 
 ## Objectif global
 
-Ce module fournit une base d’**hyperparamètres optimisés reproductibles** pour chaque algorithme SB3 utilisé dans le projet. Il permet de s’assurer que les comparaisons entre algorithmes (PPO vs A2C vs DQN…) et entre approches (SB3 vanilla vs PPO+GNN) se font à régimes d’hyperparamètres calibrés, et non à configurations arbitraires.
+Ce module fournit une base d’**hyperparamètres optimisés reproductibles** pour chaque algorithme SB3 utilisé dans le projet. Il permet de s’assurer que les comparaisons entre algorithmes (PPO vs A2C vs DQN…) et entre approches (baseline SB3 vs PPO+GNN) se font à régimes d’hyperparamètres calibrés, et non à configurations arbitraires.

@@ -1,4 +1,4 @@
-# Padding — MaskablePPO sur PrimAITE à topologie dynamique
+# Padding - MaskablePPO sur PrimAITE à topologie dynamique
 
 Ce dossier regroupe l'approche **padding** utilisée pour entraîner et évaluer un agent de défense réseau (Blue Agent) dans des environnements PrimAITE dont la topologie varie au cours d'un épisode ou d'un scénario à l'autre. Contrairement à l'approche GNN (voir `../GNN/`), qui exploite nativement la structure de graphe, l'approche padding garde l'espace d'observation et d'action **aplati et de taille fixe** : les nœuds absents ou non encore annoncés sont remplis par du padding et masqués durement via `ActionMasker` (sb3-contrib). Cette approche sert de point de comparaison directe à l'approche GNN, sur les mêmes scénarios et avec les mêmes protocoles d'évaluation.
 
@@ -36,12 +36,12 @@ RandomizationConfig(
 
 ### `reward_shaping.py`
 Ajoute trois signaux de récompense intrinsèques pour éviter l'effondrement vers la politique no-op :
-- **Bonus de détection** — récompense le scan d'un nœud effectivement compromis
-- **Bonus d'interruption** — récompense le ralentissement de la chaîne d'attaque
-- **Pénalité d'action inutile** — pénalise l'action sur un nœud sain
+- **Bonus de détection** - récompense le scan d'un nœud effectivement compromis
+- **Bonus d'interruption** - récompense le ralentissement de la chaîne d'attaque
+- **Pénalité d'action inutile** - pénalise l'action sur un nœud sain
 
 ### `universal_obs_wrapper.py`
-Aligne les espaces d'observation et d'action sur une taille fixe maximale, déterminée à partir de l'ensemble des scénarios utilisés (voir `compute_max_dimensions`). Permet à un modèle entraîné sur un scénario donné d'être évalué sur un autre sans aucune modification du modèle — c'est la brique clé qui rend les comparaisons inter-scénarios possibles.
+Aligne les espaces d'observation et d'action sur une taille fixe maximale, déterminée à partir de l'ensemble des scénarios utilisés (voir `compute_max_dimensions`). Permet à un modèle entraîné sur un scénario donné d'être évalué sur un autre sans aucune modification du modèle, c'est la brique clé qui rend les comparaisons inter-scénarios possibles.
 
 ### `train_padding.py`
 Fabrique d'environnements et boucle d'entraînement principale. Expose `make_env()` qui assemble la pile complète de wrappers selon le mode choisi, et `train()` / `evaluate()` pour l'entraînement et l'évaluation via `MaskablePPO`. Supporte trois modes d'entraînement : `static`, `dynamic`, `randomized` (voir tableau ci-dessous).
@@ -80,24 +80,24 @@ pip install stable-baselines3 sb3-contrib gymnasium numpy matplotlib pyyaml prim
 
 ## Utilisation rapide
 
-Les scénarios sont partagés avec le reste du projet — ils se trouvent dans `../Scenarios/`.
+Les scénarios sont partagés avec le reste du projet, ils se trouvent dans `../Scenarios/`.
 
 ```bash
 # Depuis le dossier Padding/ (ou le dossier racine selon la config d'import)
 
-# Entraînement — scénario statique
+# Entraînement - scénario statique
 python -m padding.train_padding \
     --config ../Scenarios/data_manipulation_3_pc.yaml \
     --mode static \
     --total-timesteps 100000
 
-# Entraînement — nœuds dynamiques (calendrier fixe)
+# Entraînement - nœuds dynamiques (calendrier fixe)
 python -m padding.train_padding \
     --config ../Scenarios/data_manipulation_3_pc.yaml \
     --mode dynamic \
     --total-timesteps 100000
 
-# Entraînement — randomisation de topologie par épisode
+# Entraînement - randomisation de topologie par épisode
 python -m padding.train_padding \
     --config ../Scenarios/data_manipulation_3_pc.yaml \
     --mode randomized \

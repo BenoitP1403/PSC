@@ -1,4 +1,4 @@
-# GNN — Entraînement PPO sur graphe pour PrimAITE
+# GNN - Entraînement PPO sur graphe pour PrimAITE
 
 Ce dossier regroupe les scripts d’entraînement d’une politique **PPO** s’appuyant sur un encodeur **Graph Neural Network (GNN hétérogène, GINE)** pour l’environnement [PrimAITE](https://github.com/Alan-Turing-Institute/PrimAITE). L’objectif est d’apprendre un agent défenseur capable de détecter, contenir et corriger des attaques visant l’intégrité des données dans un système d’information modélisé sous forme de graphe (hôtes, services, liens réseau).
 
@@ -10,7 +10,7 @@ GNN/
 └── GNN_multiscenario.py        # Entraînement multi-scénarios avec curriculum
 ```
 
-Les fichiers YAML de scénarios consommés par ces scripts se trouvent désormais à la racine du projet, dans [`../Scenarios/`](../Scenarios/README.md) (partagés avec `SB3 vanilla/` et `Parameter optimization/`).
+Les fichiers YAML de scénarios consommés par ces scripts se trouvent désormais à la racine du projet, dans [`../Scenarios/`](../Scenarios/README.md) (partagés avec `SB3 agent/` et `Parameter optimization/`).
 
 ### `GNN_single_scenario.py`
 Entraîne une politique PPO-GNN sur **un seul** scénario PrimAITE. Il définit l’architecture du modèle (deux couches `GINEConv` via `HeteroConv`, têtes acteur/critique), la boucle de rollout et les mises à jour PPO, la gestion des checkpoints et le tracé des courbes d’entraînement.

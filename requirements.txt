@@ -3,7 +3,7 @@
 #
 # Dépendances du projet, installer après PrimAITE dans le même venv :
 
-# --- Cœur RL (SB3 vanilla, Padding, Parameter optimization) ---
+# --- Cœur RL (SB3 agent, Padding, Parameter optimization) ---
 stable-baselines3
 sb3-contrib
 gymnasium

@@ -1,6 +1,6 @@
-# Souris — Q-Learning vs REINFORCE *from scratch*
+# Souris - Q-Learning vs REINFORCE *from scratch*
 
-Ce dossier regroupe l’implémentation et la comparaison de deux algorithmes d’apprentissage par renforcement **implémentés entièrement *from scratch*** (uniquement avec NumPy — pas de Stable Baselines, pas de PyTorch, pas de Gymnasium), appliqués à une tâche de navigation sur grille. Une souris apprend, à partir des seules récompenses, à collecter du fromage sur une grille 10×10 tout en évitant les cases empoisonnées.
+Ce dossier regroupe l’implémentation et la comparaison de deux algorithmes d’apprentissage par renforcement **implémentés entièrement *from scratch*** (uniquement avec NumPy, pas de Stable Baselines, pas de PyTorch, pas de Gymnasium), appliqués à une tâche de navigation sur grille. Une souris apprend, à partir des seules récompenses, à collecter du fromage sur une grille 10×10 tout en évitant les cases empoisonnées.
 
 ## Contenu du dossier
 
@@ -48,7 +48,7 @@ Le bonus de proximité encourage l'exploration vers le fromage sans en révéler
 
 ## Algorithmes implémentés
 
-### Q-Learning (Sarsamax — off-policy)
+### Q-Learning (Sarsamax, off-policy)
 
 Apprend une Q-table `Q(s, a)` estimant la valeur de chaque action dans chaque état. Utilise une **politique d'exploration ε-greedy** avec décroissance exponentielle (`ε` de 1.0 → 0.01).
 
@@ -60,7 +60,7 @@ Détails d'implémentation clés :
 - Les égalités sont départagées aléatoirement entre actions de valeurs équivalentes pour éviter les boucles déterministes
 - L'état du plateau est copié à chaque épisode pour permettre le suivi de la consommation du fromage
 
-### REINFORCE (gradient de politique — on-policy)
+### REINFORCE (gradient de politique, on-policy)
 
 Optimise directement une politique stochastique $\pi_\theta(a|s)$ paramétrée par une table de préférences $\theta$. Utilise une **politique softmax** avec masquage des actions invalides (fixées à −1e9 avant le softmax).
 
