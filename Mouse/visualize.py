@@ -66,9 +66,11 @@ def draw_game_over(screen, message, font):
     screen.blit(text_surf, text_rect)
 
 
-def visualize(learning_function, policy):
-    print("Generating board...")
-    BOARD = generate_board(ROWS, COLS, POISON_PROB, CHEESE_SIMPLEX)
+def visualize(learning_function, policy, board=None):
+    if board is None:
+        print("Generating board...")
+        board = generate_board(ROWS, COLS, POISON_PROB, CHEESE_SIMPLEX)
+    BOARD = board
     print("Started training...")
     PARAMETER = learning_function(BOARD)
 

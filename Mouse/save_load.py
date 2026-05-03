@@ -82,10 +82,11 @@ def train_and_save(learning_fn, algo_name):
 
 
 def load_only(save_entry):
-    """Wrapper : charge les poids d'un fichier donné sans entraîner."""
-    def wrapper(board):
-        print(f"\nChargement de :")
-        print_save_info(save_entry["filename"], save_entry["meta"])
-        print()
-        return save_entry["meta"]["parameter"]
-    return wrapper
+    """Retourne (wrapper, board) depuis un fichier sauvegardé."""
+    saved_board = save_entry["meta"]["board"]
+    parameter = save_entry["meta"]["parameter"]
+
+    def wrapper(board):  # board ignoré, on utilise la map sauvegardée
+        return parameter
+
+    return wrapper, saved_board

@@ -38,8 +38,12 @@ def menu():
         idx = int(choice) - 3 if choice.isdigit() else -1
         if 0 <= idx < len(saves):
             entry = saves[idx]
+            print(f"\nChargement de :")
+            print_save_info(entry["filename"], entry["meta"])
+            print()
             _, pol, _ = ALGOS.get(entry["algo_name"], (None, greedy_policy, None))
-            visualize(load_only(entry), pol)
+            wrapper, board = load_only(entry)
+            visualize(wrapper, pol, board=board)
         else:
             print("Choix invalide.")
 
